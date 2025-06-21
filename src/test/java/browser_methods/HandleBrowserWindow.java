@@ -1,5 +1,6 @@
 package browser_methods;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.Set;
 
@@ -7,10 +8,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class HandleBrowserWindow {
 	public static void main(String[] args) {
-		WebDriver driver=new ChromeDriver();
+		ChromeOptions options=new ChromeOptions();
+		String path="D:"+File.separator+"Rahul"+File.separator+"AdBlock-—-block-ads-across-the-web-Chrome-Web-Store.crx";
+		File file=new File(path);
+		options.addExtensions(file);
+		options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+		options.setExperimentalOption("useAutomationExtension", false);
+		
+		WebDriver driver=new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
 		driver.get("https://mahabocw.in/");

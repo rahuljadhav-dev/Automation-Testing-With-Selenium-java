@@ -38,7 +38,7 @@ public class GitHub {
 
 			WebElement errorMessage = wait.until(
 					ExpectedConditions.visibilityOfElementLocated(By.className("flash-error"))
-					);
+			);
 
 			String text=errorMessage.getText();
 			if(text.equals("Incorrect username or password.")) {

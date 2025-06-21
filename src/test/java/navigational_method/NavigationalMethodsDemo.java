@@ -5,10 +5,15 @@ import java.net.URL;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class NavigationalMethodsDemo {
 	public static void main(String[] args) throws MalformedURLException {
-		WebDriver driver=new ChromeDriver();
+		ChromeOptions options=new ChromeOptions();
+		options.setExperimentalOption("excludeSwitches",new String[] {"enable-automation"});
+		options.addArguments("--incognito");
+		
+		WebDriver driver=new ChromeDriver(options);
 		
 //		driver.get("https://www.insta.com/");
 		driver.navigate().to("https://www.insta.com/");
